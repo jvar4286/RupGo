@@ -1,0 +1,72 @@
+<%= form_for(destination) do |f| %>
+  <% if destination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
+
+      <ul>
+      <% destination.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :place %>
+    <%= f.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= f.label :why_go %>
+    <%= f.text_area :why_go %>
+  </div>
+
+  <div class="field">
+    <%= f.label :to_do %>
+    <%= f.text_area :to_do %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sights %>
+    <%= f.text_area :sights %>
+  </div>
+
+  <div class="field">
+    <%= f.label :festivals %>
+    <%= f.text_area :festivals %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sleep %>
+    <%= f.text_area :sleep %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eat %>
+    <%= f.text_area :eat %>
+  </div>
+
+  <div class="field">
+    <%= f.label :drink %>
+    <%= f.text_area :drink %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shop %>
+    <%= f.text_area :shop %>
+  </div>
+
+  <div class="field">
+    <%= f.label :around %>
+    <%= f.text_area :around %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+   <div class="field">
+    Portada: <%= f.file_field :cover %>
+  </div>
+
+<% end %>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RupGo</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+  <header>
+      <nav class="be green white">
+          <ul class="no-list row center-xs">
+           <li class="col-xs">
+            <%= link_to "Home", root_path %>
+          </li> 
+          <li class="col-xs">
+             Colombia
+          </li> 
+          <li class="col-xs">
+             Flights
+          </li> 
+          <li class="col-xs">
+             Hotels
+          </li>
+          <li class="col-xs">
+             Auto
+          </li>
+          <li class="col-xs">
+             Hotdeals
+          </li>
+          </ul>
+        </nav>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <li class="col-md">
+          <%= link_to "Close Session", destroy_user_session_path, method: :delete %>
+        </li>
+        <li class="col-md">
+          <%= link_to "Sign In", new_user_session_path %>
+        </li>
+        <li class="col-md">
+          <%= link_to "Create Account", new_user_registration_path %>
+        </li>
+
+    </header>
+
+
+
+
+
+
+
+
+  		  
+    <%= yield %>
+  </body>
+</html>

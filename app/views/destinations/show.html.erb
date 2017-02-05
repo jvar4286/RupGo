@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="field">
+<%= image_tag @destination.cover.url(:thumb) %>
+  
+</div>
+<p>
+  <strong>Place:</strong>
+  <%= @destination.place %>
+</p>
+
+<p>
+  <strong>Why go:</strong>
+  <%= @destination.why_go %>
+</p>
+
+<p>
+  <strong>To do:</strong>
+  <%= @destination.to_do %>
+</p>
+
+<p>
+  <strong>Sights:</strong>
+  <%= @destination.sights %>
+</p>
+
+<p>
+  <strong>Festivals:</strong>
+  <%= @destination.festivals %>
+</p>
+
+<p>
+  <strong>Sleep:</strong>
+  <%= @destination.sleep %>
+</p>
+
+<p>
+  <strong>Eat:</strong>
+  <%= @destination.eat %>
+</p>
+
+<p>
+  <strong>Drink:</strong>
+  <%= @destination.drink %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @destination.shop %>
+</p>
+
+<p>
+  <strong>Around:</strong>
+  <%= @destination.around %>
+</p>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>
