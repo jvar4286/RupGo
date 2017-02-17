@@ -1,0 +1,29 @@
+ <header>
+      <nav class="be green white">
+          <ul class="no-list row center-xs">
+           <li class="col-xs">
+            <%= link_to "Home", destinations_path %>
+          </li>
+           <% @categories.each do  |category| %>
+             <li class="col-xs">
+               <%= link_to category.name,category %>
+            </li>
+          <% end -%>
+         
+          <li class="col-md">
+          <%= link_to "Close Session", destroy_user_session_path, method: :delete %>
+         </li>
+
+        <li class="col-md">
+          <%= link_to "Sign In", new_user_session_path %>
+        </li>
+
+        <li class="col-md">
+          <%= link_to "Create Account", new_user_registration_path %>
+        </li>
+        
+      </ul>
+
+    </nav>
+
+</header>

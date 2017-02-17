@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @category.name %></h1>
+<h2>Destinations</h2>
+<% @category.destinations.each do |destination|%>
+	<h3><%= link_to destination.place, destination %></h3>
+		<div>
+			<td><%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</div>
+<% end -%>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

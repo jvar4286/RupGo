@@ -1,5 +1,9 @@
 class DestinationsController < ApplicationController
-  before_action :set_destination, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!, except: [:show,:index]
+  before_action :set_destination, except: [:index,:new,:create]
+  before_action :authenticate_editor!, only: [:new,:create,:update]
+  before_action :authenticate_admin!, only: [:destroy]
 
   # GET /destinations
   # GET /destinations.json
@@ -15,6 +19,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/new
   def new
     @destination = Destination.new
+    @categories = Category.all
   end
 
   # GET /destinations/1/edit
@@ -24,7 +29,8 @@ class DestinationsController < ApplicationController
   # POST /destinations
   # POST /destinations.json
   def create
-    @destination = Destination.new(destination_params)
+    @destination = current_user.destinations.new(destination_params)
+    @destination.categories = params[:categories]
 
     respond_to do |format|
       if @destination.save
@@ -69,6 +75,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:place, :why_go, :to_do, :sights, :festivals, :sleep, :eat, :drink, :shop, :around, :cover)
+      params.require(:destination).permit(:place, :why_go, :to_do, :sights, :festivals, :sleep, :eat, :drink, :shop, :around, :cover, :categories)
     end
 end

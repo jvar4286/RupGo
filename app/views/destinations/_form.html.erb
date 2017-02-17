@@ -69,4 +69,15 @@
     Portada: <%= f.file_field :cover %>
   </div>
 
+   <div class="field">
+    <label> Categories</label>
+      <% @categories.each do |category| %>
+      <div class="field">
+        <%= check_box_tag "[categories[]", category.id %> <%= category.name %>
+      </div>
+        
+    <% end -%>
+  </div>
+
+
 <% end %>
