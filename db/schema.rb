@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170218183622) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "destinations", force: :cascade do |t|
     t.string   "place"
     t.text     "why_go"
@@ -35,18 +29,7 @@ ActiveRecord::Schema.define(version: 20170218183622) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
-    t.integer  "user_id"
     t.string   "state",              default: "in_draft"
-    t.index ["user_id"], name: "index_destinations_on_user_id"
-  end
-
-  create_table "has_categories", force: :cascade do |t|
-    t.integer  "destination_id"
-    t.integer  "category_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["category_id"], name: "index_has_categories_on_category_id"
-    t.index ["destination_id"], name: "index_has_categories_on_destination_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,9 +44,9 @@ ActiveRecord::Schema.define(version: 20170218183622) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
+    t.string   "permission_level"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "permission_level",       default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
