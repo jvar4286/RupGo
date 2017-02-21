@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218183622) do
+ActiveRecord::Schema.define(version: 20170131123314) do
 
   create_table "destinations", force: :cascade do |t|
     t.string   "place"
@@ -23,13 +23,12 @@ ActiveRecord::Schema.define(version: 20170218183622) do
     t.text     "drink"
     t.text     "shop"
     t.text     "around"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
-    t.string   "state",              default: "in_draft"
   end
 
   create_table "users", force: :cascade do |t|
